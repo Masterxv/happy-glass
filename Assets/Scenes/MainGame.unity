@@ -4653,7 +4653,7 @@ Transform:
   m_PrefabInternal: {fileID: 1824333798}
   m_GameObject: {fileID: 1530226900}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 11}
+  m_LocalPosition: {x: 0, y: 0, z: 10.5}
   m_LocalScale: {x: 20, y: 20, z: 1}
   m_Children: []
   m_Father: {fileID: 1560738024}
@@ -4712,7 +4712,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 567
+    m_Bits: 1591
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -5328,7 +5328,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4484815694888524, guid: 209c88b7f7008044ebbf61f837f678c4, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 11
+      value: 10.5
       objectReference: {fileID: 0}
     - target: {fileID: 4484815694888524, guid: 209c88b7f7008044ebbf61f837f678c4, type: 2}
       propertyPath: m_LocalRotation.x
@@ -5703,6 +5703,22 @@ MonoBehaviour:
   - {fileID: 1362844387660000, guid: d1b6876106c136e4c9bc2ef94d70c0cc, type: 2}
   - {fileID: 1040180298465122, guid: 094db170880eec64bb2bafbdc423823b, type: 2}
   - {fileID: 1281029824659810, guid: f4e5328ef3f71c143b3dd8f77090b3dc, type: 2}
+  - {fileID: 1894858720304412, guid: ab9e71bc9468a354eb3caeed3b9c6e3e, type: 2}
+  - {fileID: 1457773567711926, guid: b1255745d56cba54a8aa0519da8bc6b4, type: 2}
+  - {fileID: 1888439717034348, guid: 964f616e279b9c24a8d7a0f99deb5e7d, type: 2}
+  - {fileID: 1994788566374248, guid: ce397a8b4d4a3b14dba184f2dadd445c, type: 2}
+  - {fileID: 1937145990007268, guid: 6eac8ecc952e1e349a5218e8a5c79892, type: 2}
+  - {fileID: 1340961171935190, guid: ceb57a8a43b14ea4b8742d5c485a27c4, type: 2}
+  - {fileID: 1359210302388356, guid: 423b39c8b0e9af345a2389879fa4b577, type: 2}
+  - {fileID: 1777125069179918, guid: 4bf6ea44cc87f8e4f8254595a6df1ebb, type: 2}
+  - {fileID: 1521911051620902, guid: 29b3e4c944d7d504eb59b63ba777e4b6, type: 2}
+  - {fileID: 1437859489554598, guid: 384144389c0032142ad0e12eba6c9d0d, type: 2}
+  - {fileID: 1904377580022116, guid: 3fe963fb0f0d39b4194d1759c99a7e68, type: 2}
+  - {fileID: 1542961519038640, guid: 4009049e9e401914195487f6b84729f5, type: 2}
+  - {fileID: 1828690059508570, guid: ff94cdcb6f6a33e429fcada63025b72d, type: 2}
+  - {fileID: 1854900943686832, guid: e991d323221a4434f94efca8ef2b1be4, type: 2}
+  - {fileID: 1333380251146046, guid: 23e883ac5b677c84f9373fc5cd94d784, type: 2}
+  - {fileID: 1082405230265866, guid: adcbb96fcc0e2024aab3d8e10292f103, type: 2}
 --- !u!4 &1889830855
 Transform:
   m_ObjectHideFlags: 0

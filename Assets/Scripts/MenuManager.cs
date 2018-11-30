@@ -64,6 +64,10 @@ public class MenuManager : MonoBehaviour {
         
         SceneTransition.Instance.LoadScene("MainGame",TransitionType.WaterLogo);
     }
+    public void RateClick()
+    {
+        Application.OpenURL("market://details?id=com.zergitas.happyglass2");
+    }
     public void ChooseLevelClick()
     {
         SceneTransition.Instance.LoadScene("ChooseLevel", TransitionType.WaterLogo);

@@ -15,7 +15,7 @@ public class VictoryManager : MonoBehaviour {
     {
         txtTotalStar.text = PlayerPrefs.GetInt("totalStar", 0).ToString();
         SceneTransition.Instance.Out();
-        if (Random.Range(0, 100) < 90)
+        if (Random.Range(0, 100) < 50)
         {
             AdManager.Ins.ShowInterstitial();
         }

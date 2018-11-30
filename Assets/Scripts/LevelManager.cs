@@ -39,10 +39,12 @@ public class LevelManager : MonoBehaviour {
                 btn.transform.GetChild(j).GetChild(0).gameObject.SetActive(true);
             }
         }
+        btnLvContainer.GetComponent<RectTransform>().anchoredPosition=new Vector2(0,400 * PlayerPrefs.GetInt("curLevel", 1)/2-400);
         SceneTransition.Instance.Out();
     }
     private void Update()
     {
+        
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             homeClick();

@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.IO;
@@ -6,7 +7,6 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
 public enum GameStatus
 {
     WAITING,
@@ -27,16 +27,20 @@ public class GameManager : MonoBehaviour {
     public List<GameObject> listLevel;
     public static GameStatus GameStatus=GameStatus.WAITING;
     public static bool showHint = false;
-    public static int totalLevel = 84;
+    public static int totalLevel = 100;
     int numCup = 0;
     List<LineRenderer> listHintLine = new List<LineRenderer>();
-	// Use this for initialization
 	void Start () {
         GameStatus = GameStatus.WAITING;
-        if (PlayerPrefs.GetInt("countForGift", 0) == 2)
+        if(PlayerPrefs.GetString("LastTimeOpenGift", "") == "")
         {
-            GiftBoxPanel.SetActive(true);
+            PlayerPrefs.SetString("LastTimeOpenGift", DateTime.UtcNow.ToString());
         }
+        TimeSpan diffTime = DateTime.Parse(PlayerPrefs.GetString("LastTimeOpenGift","")).Subtract(DateTime.UtcNow);
+        Debug.Log(diffTime.TotalSeconds);
+        if (Math.Abs(diffTime.TotalSeconds)>3600 && AdManager.Ins.rewardBasedVideo.IsLoaded()) {
+            GiftBoxPanel.SetActive(true);
+        };
         txtTotalStar.text = PlayerPrefs.GetInt("totalStar", 0).ToString();
         txtLevel.text = PlayerPrefs.GetInt("curLevel", 1).ToString();
         Instantiate(listLevel[PlayerPrefs.GetInt("curLevel", 1) - 1], transform);
@@ -76,8 +80,7 @@ public class GameManager : MonoBehaviour {
     }
     public void giftBoxClick()
     {
-        if (GameStatus == GameStatus.WAITING)
-            StartCoroutine(giftBoxClickIEnumerator());
+        AdManager.Ins.ShowVideo();
     }
     public void cardClick(int i)
     {
@@ -125,10 +128,10 @@ public class GameManager : MonoBehaviour {
         GameStatus = GameStatus.WAITING;
         GiftBoxPanel.SetActive(false);
     }
-    IEnumerator giftBoxClickIEnumerator()
+    public IEnumerator giftBoxClickIEnumerator()
     {
+        PlayerPrefs.SetString("LastTimeOpenGift", DateTime.UtcNow.ToString());
         GameStatus = GameStatus.PAUSE;
-        PlayerPrefs.SetInt("countForGift", (PlayerPrefs.GetInt("countForGift", 0) + 1) % 3);
         DOTween.Kill(lineCreator.Pencil.GetComponent<SpriteRenderer>());
         lineCreator.Pencil.GetComponent<SpriteRenderer>().DOFade(0, 0.1f);
         lineCreator.activeLine = null;
@@ -156,7 +159,7 @@ public class GameManager : MonoBehaviour {
         yield return new WaitForSeconds(1f);
         for (int i = 0; i < 3; i++)
         {
-            int c = Random.RandomRange(0, cardPos.Count);
+            int c = UnityEngine.Random.RandomRange(0, cardPos.Count);
             GiftBoxPanel.transform.GetChild(i).DOMove(cardPos[c], 0.5f);
             GiftBoxPanel.transform.GetChild(i).GetComponent<Button>().interactable = true;
             cardPos.RemoveAt(c);
